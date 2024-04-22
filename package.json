@@ -8,7 +8,6 @@
     "editor.js",
     "editorjs"
   ],
-  
   "description": "Video Tool for Editor.js, clone from editorjs-image",
   "license": "MIT",
   "repository": "https://github.com/IhorStorozhok/editorjs-video",
@@ -47,6 +46,8 @@
   },
   "dependencies": {
     "@codexteam/icons": "^0.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-player": "^2.9.0"
   }
 }

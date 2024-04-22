@@ -1,5 +1,5 @@
 import { make } from './ui';
-import { IconAddBorder, IconStretch, IconAddBackground, IconPicture } from '@codexteam/icons';
+import { IconAddBorder, IconStretch, IconAddBackground } from '@codexteam/icons';
 
 
 /**
