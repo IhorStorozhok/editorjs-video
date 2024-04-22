@@ -1,7 +1,6 @@
 import { make } from './ui';
-import bgIcon from './svg/background.svg';
-import borderIcon from './svg/border.svg';
-import stretchedIcon from './svg/stretched.svg';
+import { IconAddBorder, IconStretch, IconAddBackground, IconPicture } from '@codexteam/icons';
+
 
 /**
  * Working with Block Tunes
@@ -29,17 +28,17 @@ export default class Tunes {
     return [
       {
         name: 'withBorder',
-        icon: borderIcon,
+        icon: IconAddBorder,
         title: 'With border',
       },
       {
         name: 'stretched',
-        icon: stretchedIcon,
+        icon: IconStretch,
         title: 'Stretch video',
       },
       {
         name: 'withBackground',
-        icon: bgIcon,
+        icon: IconAddBackground,
         title: 'With background',
       },
     ];

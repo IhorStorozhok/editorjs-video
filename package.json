@@ -1,6 +1,6 @@
 {
-  "name": "@weekwood/editorjs-video",
-  "version": "1.0.2",
+  "name": "@storozhok/editorjs-video",
+  "version": "1.0.0",
   "keywords": [
     "codex editor",
     "tool",
@@ -10,7 +10,7 @@
   ],
   "description": "Video Tool for Editor.js, clone from editorjs-image",
   "license": "MIT",
-  "repository": "https://github.com/weekwood/editorjs-video",
+  "repository": "https://github.com/IhorStorozhok/editorjs-video",
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -20,8 +20,8 @@
     "lint:fix": "eslint src/ --ext .js --fix"
   },
   "author": {
-    "name": "Di Wu",
-    "email": "di.wu@me.com"
+    "name": "IhorStorozhok",
+    "email": "StorozhokIgor@gmail.com"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -45,6 +45,7 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "@codexteam/icons": "^0.3.0",
     "react-player": "^2.9.0"
   }
 }
