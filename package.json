@@ -1,6 +1,6 @@
 {
   "name": "@storozhok/editorjs-video",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "codex editor",
     "tool",
@@ -8,6 +8,7 @@
     "editor.js",
     "editorjs"
   ],
+  
   "description": "Video Tool for Editor.js, clone from editorjs-image",
   "license": "MIT",
   "repository": "https://github.com/IhorStorozhok/editorjs-video",

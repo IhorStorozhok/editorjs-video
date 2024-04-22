@@ -30,7 +30,7 @@ This Tool is also capable of uploading & displaying video files using the [React
 Get the package
 
 ```shell
-npm i --save-dev @weekwood/editorjs-video
+npm i --save-dev @storozhok/editorjs-video
 ```
 
 Include module at your application
