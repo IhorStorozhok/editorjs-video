@@ -147,8 +147,9 @@ export default class VideoTool {
       config: this.config,
       onSelectFile: () => {
         this.uploader.uploadSelectedFile({
-          onPreview: (src) => {
-            this.ui.showPreloader(src);
+          onPreview: () => {
+            this.ui.showPreloader();
+            console.log('onPreview');
           },
         });
       },
@@ -420,8 +421,8 @@ export default class VideoTool {
    */
   uploadFile(file) {
     this.uploader.uploadByFile(file, {
-      onPreview: (src) => {
-        this.ui.showPreloader(src);
+      onPreview: () => {
+        this.ui.showPreloader();
       },
     });
   }

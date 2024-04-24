@@ -26,15 +26,14 @@ export default class Uploader {
    * @param {Function} onPreview - callback fired when preview is ready
    */
   uploadSelectedFile({ onPreview }) {
-    console.log('start preview');
-    const preparePreview = function (file) {
-      const reader = new FileReader();
+    const preparePreview = function () {
+      // const reader = new FileReader();
 
-      reader.readAsDataURL(file);
-      reader.onload = (e) => {
-        onPreview(e.target.result);
-      };
-      console.log('end preview');
+      // reader.readAsDataURL(file);
+      // reader.onload = (e) => {
+      // onPreview(e.target.result);
+      // };
+      onPreview();
     };
 
     /**
@@ -46,7 +45,7 @@ export default class Uploader {
     // custom uploading
     if (this.config.uploader && typeof this.config.uploader.uploadByFile === 'function') {
       upload = ajax.selectFiles({ accept: this.config.types }).then((files) => {
-        preparePreview(files[0]);
+        preparePreview();
 
         const customUpload = this.config.uploader.uploadByFile(files[0]);
 
@@ -65,7 +64,7 @@ export default class Uploader {
         accept: this.config.types,
         headers: this.config.additionalRequestHeaders,
         beforeSend: (files) => {
-          preparePreview(files[0]);
+          preparePreview();
         },
         fieldName: this.config.field,
       }).then((response) => response.body);

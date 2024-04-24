@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React App</title>
+    <!-- Include the EditorJS script -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+</head>
+<body>
+    <div id="root">
+        <div id="editorjs"></div>
+    </div>
+    <!-- Include your custom script -->
+    <script src="../dist/bundle.js"></script>
+    <script>
+        // Initialize the EditorJS
+        const editor = new EditorJS({
+            holder: 'editorjs',
+            tools:{video:{
+                class:VideoTool,
+                config:{
+                    player:{
+                        controls:false,
+                        autoplay:false,
+                    },
+                    uploader: {
+                        async uploadByFile(file) {
+                            const promise = new Promise((res,rej)=>{
+                                setTimeout(()=>{
+                                    res('12345')
+                                },100000)
+                            })
+                            await promise
+                            return {
+                                success: 1,
+                                file: {
+                                    url: 'https://www.youtube.com/watch?v=5qap5aO4i9A',
+                                    type: 'video'
+                                }
+                            }
+                            console.log(file)
+                        }
+                    }
+                    
+                }}
+            }
+        });
+    </script>
+</body>
+<style>
+    .video-tool__loader {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #87ceeb; /* Light Blue color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 10px;
+  
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.video-tool__loader-wrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+</html>
+
+

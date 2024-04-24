@@ -25,6 +25,8 @@ export default class Ui {
       fileButton: this.createFileButton(),
       videoEl: undefined,
       videoPreloader: make('video', this.CSS.videoPreloader),
+      loaderWrapper: make('div', this.CSS.loaderWrapper),
+      loader: make('div', this.CSS.loading),
       caption: make('div', [this.CSS.input, this.CSS.caption], {
         contentEditable: !this.readOnly,
       }),
@@ -40,8 +42,9 @@ export default class Ui {
      *    <select-file-button />
      *  </wrapper>
      */
+    this.nodes.loaderWrapper.appendChild(this.nodes.loader);
     this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
-    this.nodes.videoContainer.appendChild(this.nodes.videoPreloader);
+    this.nodes.videoContainer.appendChild(this.nodes.loaderWrapper);
     this.nodes.wrapper.appendChild(this.nodes.videoContainer);
     this.nodes.wrapper.appendChild(this.nodes.caption);
     this.nodes.wrapper.appendChild(this.nodes.fileButton);
@@ -55,7 +58,7 @@ export default class Ui {
   get CSS() {
     return {
       baseClass: this.api.styles.block,
-      loading: this.api.styles.loader,
+      // loading: this.api.styles.loader,
       input: this.api.styles.input,
       button: this.api.styles.button,
 
@@ -67,6 +70,8 @@ export default class Ui {
       videoPreloader: 'video-tool__video-preloader',
       videoEl: 'video-tool__video-picture',
       caption: 'video-tool__caption',
+      loading: 'video-tool__loader',
+      loaderWrapper: 'video-tool__loader-wrapper',
     };
   }
 
@@ -128,7 +133,7 @@ export default class Ui {
    * @returns {void}
    */
   showPreloader(src) {
-    this.nodes.videoPreloader.src = `url(${src})`;
+    // this.nodes.videoPreloader.src = `url(${src})`;
 
     this.toggleStatus(Ui.status.UPLOADING);
   }
