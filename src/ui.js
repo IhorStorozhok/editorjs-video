@@ -1,5 +1,5 @@
-import buttonIcon from "./svg/button-icon.svg";
-import renderReactPlayer from "react-player/lib/standalone";
+import buttonIcon from './svg/button-icon.svg';
+import renderReactPlayer from 'react-player/lib/standalone';
 /**
  * Class for working with UI:
  *  - rendering base structure
@@ -20,12 +20,12 @@ export default class Ui {
     this.onSelectFile = onSelectFile;
     this.readOnly = readOnly;
     this.nodes = {
-      wrapper: make("div", [this.CSS.baseClass, this.CSS.wrapper]),
-      videoContainer: make("div", [this.CSS.videoContainer]),
+      wrapper: make('div', [this.CSS.baseClass, this.CSS.wrapper]),
+      videoContainer: make('div', [ this.CSS.videoContainer ]),
       fileButton: this.createFileButton(),
       videoEl: undefined,
-      videoPreloader: make("video", this.CSS.videoPreloader),
-      caption: make("div", [this.CSS.input, this.CSS.caption], {
+      videoPreloader: make('video', this.CSS.videoPreloader),
+      caption: make('div', [this.CSS.input, this.CSS.caption], {
         contentEditable: !this.readOnly,
       }),
     };
@@ -62,11 +62,11 @@ export default class Ui {
       /**
        * Tool's classes
        */
-      wrapper: "video-tool",
-      videoContainer: "video-tool__video",
-      videoPreloader: "video-tool__video-preloader",
-      videoEl: "video-tool__video-picture",
-      caption: "video-tool__caption",
+      wrapper: 'video-tool',
+      videoContainer: 'video-tool__video',
+      videoPreloader: 'video-tool__video-preloader',
+      videoEl: 'video-tool__video-picture',
+      caption: 'video-tool__caption',
     };
   }
 
@@ -80,9 +80,9 @@ export default class Ui {
    */
   static get status() {
     return {
-      EMPTY: "empty",
-      UPLOADING: "loading",
-      FILLED: "filled",
+      EMPTY: 'empty',
+      UPLOADING: 'loading',
+      FILLED: 'filled',
     };
   }
 
@@ -108,13 +108,13 @@ export default class Ui {
    * @returns {Element}
    */
   createFileButton() {
-    const button = make("div", [this.CSS.button]);
+    const button = make('div', [ this.CSS.button ]);
 
     button.innerHTML =
       this.config.buttonContent ||
-      `${buttonIcon} ${this.api.i18n.t("Select an Video")}`;
+      `${buttonIcon} ${this.api.i18n.t('Select an Video')}`;
 
-    button.addEventListener("click", () => {
+    button.addEventListener('click', () => {
       this.onSelectFile();
     });
 
@@ -139,7 +139,7 @@ export default class Ui {
    * @returns {void}
    */
   hidePreloader() {
-    this.nodes.videoPreloader.src = "";
+    this.nodes.videoPreloader.src = '';
     this.toggleStatus(Ui.status.EMPTY);
   }
 
