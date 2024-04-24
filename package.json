@@ -1,6 +1,6 @@
 {
   "name": "@storozhok/editorjs-video",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "keywords": [
     "codex editor",
     "tool",
@@ -46,7 +46,6 @@
   },
   "dependencies": {
     "@codexteam/icons": "^0.3.0",
-    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.9.0"
   }
