@@ -199,6 +199,21 @@ export default class VideoTool {
   }
 
   /**
+   * Validate Video block data:
+   *
+   * @public
+   * @returns {boolean} false if data is not valid
+   * @param savedData
+   */
+  validate(savedData) {
+    if (!savedData.file || !savedData.file.url) {
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
    * Makes buttons with tunes: add background, add border, stretch video
    *
    * @public

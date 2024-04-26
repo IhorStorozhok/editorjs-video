@@ -40,8 +40,24 @@
                                 }
                             }
                             console.log(file)
-                        }
+                        },
+                        async uploadByUrl(url) {
+                            const promise = new Promise((res,rej)=>{
+                                setTimeout(()=>{
+                                    res('12345')
+                                },100000)
+                            })
+                            await promise
+                            return {
+                                success: 1,
+                                file: {
+                                    url: 'https://www.youtube.com/watch?v=5qap5aO4i9A',
+                                    type: 'video'
+                                }
+                            }
+                            console.log(url)    
                     }
+                }
                     
                 }}
             }
