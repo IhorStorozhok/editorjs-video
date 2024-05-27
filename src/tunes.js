@@ -76,7 +76,7 @@ export default class Tunes {
 
     tunes.forEach((tune) => {
       const title = this.api.i18n.t(tune.title);
-      const innerHTML = `${tune.icon}<div>${tune.title}</div>`;
+      const innerHTML = `<div class="tunes__icon__wrapper" >${tune.icon}</div><div>${tune.title}</div>`;
       const el = make(
         "div",
         [
