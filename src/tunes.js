@@ -1,5 +1,9 @@
-import { make } from './ui';
-import { IconAddBorder, IconStretch, IconAddBackground } from '@codexteam/icons';
+import { make } from "./ui";
+import {
+  IconAddBorder,
+  IconStretch,
+  IconAddBackground,
+} from "@codexteam/icons";
 
 /**
  * Working with Block Tunes
@@ -26,19 +30,19 @@ export default class Tunes {
   static get tunes() {
     return [
       {
-        name: 'withBorder',
+        name: "withBorder",
         icon: IconAddBorder,
-        title: 'With border',
+        title: "With border",
       },
       {
-        name: 'stretched',
+        name: "stretched",
         icon: IconStretch,
-        title: 'Stretch video',
+        title: "Stretch video",
       },
       {
-        name: 'withBackground',
+        name: "withBackground",
         icon: IconAddBackground,
-        title: 'With background',
+        title: "With background",
       },
     ];
   }
@@ -50,9 +54,9 @@ export default class Tunes {
    */
   get CSS() {
     return {
-      wrapper: '',
+      wrapper: "video-tool__wrapper",
       buttonBase: this.api.styles.settingsButton,
-      button: 'video-tool__tune',
+      button: "video-tool__tune",
       buttonActive: this.api.styles.settingsButtonActive,
     };
   }
@@ -64,20 +68,29 @@ export default class Tunes {
    * @returns {Element}
    */
   render(toolData) {
-    const wrapper = make('div', this.CSS.wrapper);
+    const wrapper = make("div", this.CSS.wrapper, {});
 
     this.buttons = [];
 
     const tunes = Tunes.tunes.concat(this.actions);
 
-    tunes.forEach(tune => {
+    tunes.forEach((tune) => {
       const title = this.api.i18n.t(tune.title);
-      const el = make('div', [this.CSS.buttonBase, this.CSS.button], {
-        innerHTML: tune.icon,
-        title,
-      });
+      const innerHTML = `${tune.icon}<div>${tune.title}</div>`;
+      const el = make(
+        "div",
+        [
+          this.CSS.buttonBase,
+          this.CSS.button,
+          `video__tool__button__${tune.title.toLowerCase().replace(/ /g, "_")}`,
+        ],
+        {
+          innerHTML: innerHTML,
+          title,
+        }
+      );
 
-      el.addEventListener('click', () => {
+      el.addEventListener("click", () => {
         this.tuneClicked(tune.name, tune.action);
       });
 
@@ -87,7 +100,7 @@ export default class Tunes {
       this.buttons.push(el);
 
       this.api.tooltip.onHover(el, title, {
-        placement: 'top',
+        placement: "top",
       });
 
       wrapper.appendChild(el);
@@ -103,15 +116,18 @@ export default class Tunes {
    * @param {Function} customFunction - function to execute on click
    */
   tuneClicked(tuneName, customFunction) {
-    if (typeof customFunction === 'function') {
+    if (typeof customFunction === "function") {
       if (!customFunction(tuneName)) {
         return false;
       }
     }
 
-    const button = this.buttons.find(el => el.dataset.tune === tuneName);
+    const button = this.buttons.find((el) => el.dataset.tune === tuneName);
 
-    button.classList.toggle(this.CSS.buttonActive, !button.classList.contains(this.CSS.buttonActive));
+    button.classList.toggle(
+      this.CSS.buttonActive,
+      !button.classList.contains(this.CSS.buttonActive)
+    );
 
     this.onChange(tuneName);
   }
