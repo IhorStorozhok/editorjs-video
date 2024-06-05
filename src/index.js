@@ -251,7 +251,7 @@ export default class VideoTool {
        * Paste URL of video into the Editor
        */
       patterns: {
-        video: /https?:\/\/\S+\.(mp4|webm|mkv|flv|avi|mov|wmv|m4v|mpeg|mpg|3gp|3g2|vob|ogg|ogv|qt|rm|rmvb|ts|f4v|asf|divx|swf|dat|dvr-ms|mpg4|ogm)$/i,
+        video: /https?:\/\/\S+\.(mp4|mpg4)$/i,
       },
 
       /**
